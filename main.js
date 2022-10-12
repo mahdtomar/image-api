@@ -1,6 +1,18 @@
 const API_KEY = "16339870-38d4a3f87ddf672e6798c0e88";
-const category = "industry";
-const per_page = "9";
+const per_page = "30";
+const selectMenu = document.getElementById("category");
+let category = "all";
+selectMenu.addEventListener("change", () => {
+  category = selectMenu.value;
+  // requestApi();
+});
+const searchBar = document.getElementById("search_bar");
+//ele.addEventListener("click",()=>{category=ele.value ; console.log(ele,category)}
+const opitions = document.querySelectorAll(".opition");
+// opitions.forEach((ele) => {});
+// console.log(category);
+const activationBtn = document.querySelector(".activate");
+let q = "";
 const img = document.createElement("img");
 const div = document.createElement("div");
 const p = document.createElement("p");
@@ -36,14 +48,14 @@ let available_opisions = {
 };
 async function requestApi() {
   try {
+    imgContainer.innerHTML = "";
     await fetch(
-      `https://pixabay.com/api/?key=${API_KEY}&category=${category}&safesearch=true&per_page=${per_page}`
+      `https://pixabay.com/api/?key=${API_KEY}&category=${category}&safesearch=true&per_page=${per_page}&q=${q}&orientation=${'horizontal'}`
     )
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         Array.from(data.hits).forEach((element) => {
           // cloning html elements to use
           let mainImage = img.cloneNode();
@@ -53,6 +65,8 @@ async function requestApi() {
           let userName = p.cloneNode();
           let userImageLink = a.cloneNode();
           let imageLink = a.cloneNode();
+          // clearing root div
+
           // adding the values & attributes
           userName.textContent = element.user;
           userImage.setAttribute("src", element.userImageURL);
@@ -62,13 +76,10 @@ async function requestApi() {
             "href",
             `${websiteSource}${element.user}-${element.user_id}/`
           );
-          imageLink.setAttribute(
-            "href",
-            `${element.pageURL}`
-          );
-        console.log(element)
+          imageLink.setAttribute("href", `${element.pageURL}`);
+          console.log(element);
           // appending phase
-          imageLink.appendChild(mainImage)
+          imageLink.appendChild(mainImage);
           userImageLink.appendChild(userImage);
           detailsDiv.appendChild(userImageLink);
           detailsDiv.appendChild(userName);
@@ -83,3 +94,7 @@ async function requestApi() {
 }
 
 requestApi();
+activationBtn.addEventListener("click", () => {
+  q= searchBar.value
+  requestApi();
+});

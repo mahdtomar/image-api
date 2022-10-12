@@ -10,6 +10,11 @@ body {
   background-color: white;
 }
 
+body .container {
+  max-width: 1440px;
+  margin: 0px auto;
+}
+
 body .image-container {
   display: -ms-grid;
   display: grid;
@@ -20,12 +25,14 @@ body .image-container {
       -ms-flex-align: center;
           align-items: center;
   max-width: 100%;
+  row-gap: 40px;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
 }
 
 body .image-container div {
   background-color: #eee;
   min-width: 50%;
-  height: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,7 +47,6 @@ body .image-container div {
       -ms-flex-align: center;
           align-items: center;
   max-width: 400px;
-  gap: 10px 10px;
   border-radius: 10px;
 }
 
@@ -56,13 +62,13 @@ body .image-container div a {
           align-items: center;
 }
 
-body .image-container div a img {
+body .image-container div a > img {
   border-radius: 10px;
-  width: 90%;
-  max-height: 300px;
+  width: 100%;
+  max-height: 100%;
 }
 
-body .image-container div .info {
+body .image-container div div.info {
   background-color: transparent;
   min-width: none;
   max-width: none;
@@ -74,15 +80,32 @@ body .image-container div .info {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 0px 10px;
   width: 100%;
 }
 
-body .image-container div .info img {
-  max-width: 100px;
+body .image-container div div.info a img {
+  width: 40px;
   border-radius: 50%;
 }
 
-body .image-container div .info p {
+body .image-container div div.info p {
   font-size: 16px;
+  font-weight: bold;
+}
+
+body header .controles {
+  margin: 30px auto;
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #eee;
 }
 /*# sourceMappingURL=style.css.map */
