@@ -93,7 +93,7 @@ async function requestApi() {
   }
 }
 
-requestApi();
+// requestApi();
 activationBtn.addEventListener("click", () => {
   q= searchBar.value
   requestApi();
