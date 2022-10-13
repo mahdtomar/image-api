@@ -2,9 +2,9 @@ const API_KEY = "16339870-38d4a3f87ddf672e6798c0e88";
 const per_page = "30";
 const selectMenu = document.getElementById("category");
 let category = "all";
+const theme = document.getElementById('theme')
 selectMenu.addEventListener("change", () => {
   category = selectMenu.value;
-  // requestApi();
 });
 const searchBar = document.getElementById("search_bar");
 //ele.addEventListener("click",()=>{category=ele.value ; console.log(ele,category)}
