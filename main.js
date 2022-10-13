@@ -1,5 +1,5 @@
 const API_KEY = "16339870-38d4a3f87ddf672e6798c0e88";
-const per_page = "3";
+const per_page = "30";
 const selectMenu = document.getElementById("category");
 let category = "all";
 selectMenu.addEventListener("change", () => {
