@@ -27,10 +27,10 @@ body {
     .no-result{
       position: absolute;
       left: 50%;
+      padding: 10px;
+      top: 10px;
       transform: translateX(-50%);
-      top: 50px;
       p{
-
         font-size: 1.5em;
       }
     }
@@ -114,16 +114,26 @@ body {
     }
   }
   footer{
-    position: relative;
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 100px;
+    // position: relative;
+    // bottom: 1px;
+    // left: 50%;
+    // transform: translateX(-50%);
     p{
       text-align: center;
     }
   }
 }
-
+@media (max-width: 800px) {
+  body{
+    .image-container{
+      grid-template-columns: 1fr 1fr;
+      div{
+        max-width: 300px;
+      }
+    }
+  }
+}
 // header,
 // div,
 // footer {

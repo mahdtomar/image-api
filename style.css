@@ -38,9 +38,10 @@ body .image-container {
 body .image-container .no-result {
   position: absolute;
   left: 50%;
+  padding: 10px;
+  top: 10px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  top: 50px;
 }
 
 body .image-container .no-result p {
@@ -160,14 +161,20 @@ body header .controles div select {
 }
 
 body footer {
-  position: relative;
-  bottom: 1px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  margin-top: 100px;
 }
 
 body footer p {
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  body .image-container {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  body .image-container div {
+    max-width: 300px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
