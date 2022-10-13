@@ -7,6 +7,8 @@
 }
 
 body {
+  min-height: 100vh;
+  position: relative;
   background-color: #FAF7F0;
 }
 
@@ -63,7 +65,6 @@ body .image-container div {
           align-items: center;
   max-width: 400px;
   border-radius: 10px;
-  width: 400px;
 }
 
 body .image-container div a {
@@ -118,7 +119,7 @@ body header {
 body header .controles {
   margin: auto;
   padding: 30px 0px;
-  width: 600px;
+  max-width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,5 +157,17 @@ body header .controles div input {
 
 body header .controles div select {
   font-size: 1em;
+}
+
+body footer {
+  position: relative;
+  bottom: 1px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+body footer p {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
