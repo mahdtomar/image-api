@@ -1,5 +1,5 @@
 const API_KEY = "16339870-38d4a3f87ddf672e6798c0e88";
-const per_page = "30";
+const per_page = "3";
 const selectMenu = document.getElementById("category");
 let category = "all";
 selectMenu.addEventListener("change", () => {
@@ -53,9 +53,20 @@ async function requestApi() {
       `https://pixabay.com/api/?key=${API_KEY}&category=${category}&safesearch=true&per_page=${per_page}&q=${q}&orientation=${'horizontal'}`
     )
       .then((res) => {
+        console.log(res)
         return res.json();
       })
       .then((data) => {
+        console.log(data)
+        if(data.hits ==''){
+          let noResultDiv = div.cloneNode()
+          let noResultContent = p.cloneNode()
+          noResultDiv.classList.add('no-result')
+          noResultContent.textContent = "No Results Were found"
+          noResultDiv.appendChild(noResultContent)
+
+          imgContainer.appendChild(noResultDiv)
+        }else{
         Array.from(data.hits).forEach((element) => {
           // cloning html elements to use
           let mainImage = img.cloneNode();
@@ -86,7 +97,7 @@ async function requestApi() {
           containerDiv.appendChild(imageLink);
           containerDiv.appendChild(detailsDiv);
           imgContainer.appendChild(containerDiv);
-        });
+        });}
       });
   } catch (error) {
     console.error(error);

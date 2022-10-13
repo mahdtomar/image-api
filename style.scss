@@ -10,8 +10,10 @@ body {
     max-width: 1440px;
     margin: 0px auto;
   }
-  background-color: white;
+  background-color: #FAF7F0;
   .image-container {
+    margin: 20px auto 20px;
+    background-color: #FAF7F0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
@@ -19,8 +21,19 @@ body {
     max-width: 100%;
     row-gap: 40px;
     column-gap: 40px;
+    position: relative;
+    .no-result{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50px;
+      p{
+
+        font-size: 1.5em;
+      }
+    }
     div {
-      background-color: #eee;
+      background-color: #98A8F8;
       min-width: 50%;
       display: flex;
       flex-direction: column;
@@ -28,6 +41,7 @@ body {
       align-items: center;
       max-width: 400px;
       border-radius: 10px;
+      width: 400px;
       a {
         display: flex;
         justify-content: center;
@@ -47,6 +61,7 @@ body {
         justify-content: space-between;
         padding: 0px 10px;
         width: 100%;
+        background-color: #98A8F8;
         a{
           img {
             width: 40px;
@@ -61,13 +76,38 @@ body {
     }
   }
   header{
+    background-color: #BCCEF8;
     .controles{
-      margin: 30px auto;
-      width: 500px;
+      margin: auto;
+      padding: 30px 0px;
+      width: 600px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #eee;
+      button{
+        border-radius: 8px;
+        padding: 10px 20px;
+        border: none;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: background-color .3s;
+        &:hover{
+          background-color: rgb(228, 228, 228);
+        }
+      }
+      div{
+        label{
+          font-size: 1.3em;
+          font-weight: bold;
+        }
+        input{
+          font-size:1em;
+          outline: none;
+        }
+        select{
+          font-size: 1em;
+        }
+      }
     }
   }
 }
