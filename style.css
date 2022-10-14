@@ -8,13 +8,18 @@
 
 :root {
   --main-light-color: #faf7f0;
-  --main-Dark-color: #52616B;
-  --light-gray:#F0F5F9;
+  --main-Dark-color: #222831;
+  --light-gray: #f0f5f9;
+  --darker-blue: #00adb5;
+  --lighter-blue: #bccef8;
+  --blue: #98a8f8;
 }
 
 body {
   min-height: 100vh;
   position: relative;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
   background-color: var(--main-light-color);
 }
 
@@ -54,7 +59,7 @@ body .image-container .no-result p {
 }
 
 body .image-container div {
-  background-color: #98a8f8;
+  background-color: var(--blue);
   min-width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,6 +76,8 @@ body .image-container div {
           align-items: center;
   max-width: 400px;
   border-radius: 10px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
 
 body .image-container div a {
@@ -92,6 +99,8 @@ body .image-container div a > img {
 }
 
 body .image-container div div.info {
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
   background-color: transparent;
   min-width: none;
   max-width: none;
@@ -105,7 +114,7 @@ body .image-container div div.info {
           justify-content: space-between;
   padding: 0px 10px;
   width: 100%;
-  background-color: #98a8f8;
+  background-color: var(--blue);
 }
 
 body .image-container div div.info a img {
@@ -119,17 +128,32 @@ body .image-container div div.info p {
 }
 
 body header {
+  padding: 10px 0px;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
   left: 0px;
-  background-color: #bccef8;
+  background-color: var(--lighter-blue);
   z-index: 99;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+body header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body header .controles {
+  width: 60%;
   margin: auto;
-  padding: 30px 0px;
+  padding: 0px 0px;
   max-width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -144,7 +168,7 @@ body header .controles {
 
 body header .controles button {
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: none;
   font-size: 1.2em;
   cursor: pointer;
@@ -178,7 +202,8 @@ body header .toggole {
   height: 30px;
   position: relative;
   border-radius: 1000px;
-  background-color: var(--light-gray);
+  background-color: var(--main-Dark-color);
+  color: white;
 }
 
 body header .toggole::before {
@@ -193,27 +218,27 @@ body header .toggole::before {
 }
 
 body header .toggole::after {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   content: "dark";
   width: 30px;
   height: 30px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   position: absolute;
-  top: 55%;
   right: 5px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  top: 55%;
 }
 
 body header .toggole:checked {
-  background-color: var(--main-Dark-color);
-  color: white;
+  background-color: var(--light-gray);
+  color: black;
 }
 
 body header .toggole:checked::after {
+  right: unset;
   content: "light";
   left: 5px;
-  right: unset;
 }
 
 body header .toggole:checked::before {
@@ -227,6 +252,23 @@ body footer {
 
 body footer p {
   text-align: center;
+}
+
+body.dark-theme {
+  background-color: var(--main-Dark-color);
+  color: white;
+}
+
+body.dark-theme header {
+  background-color: var(--darker-blue);
+}
+
+body.dark-theme .image-container div {
+  background-color: var(--darker-blue);
+}
+
+body.dark-theme .image-container div div.info {
+  background-color: var(--darker-blue);
 }
 
 @media (max-width: 800px) {
