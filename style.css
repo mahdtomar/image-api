@@ -271,6 +271,10 @@ body.dark-theme .image-container div div.info {
   background-color: var(--darker-blue);
 }
 
+body.dark-theme footer a {
+  color: var(--darker-blue);
+}
+
 @media (max-width: 800px) {
   body .image-container {
     -ms-grid-columns: 1fr 1fr;

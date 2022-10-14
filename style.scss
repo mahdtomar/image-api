@@ -207,6 +207,11 @@ body.dark-theme {
       }
     }
   }
+  footer{
+    a{
+      color:var(--darker-blue)
+    }
+  }
 }
 @media (max-width: 800px) {
   body {
