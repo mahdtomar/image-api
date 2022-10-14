@@ -9,7 +9,7 @@
   --main-light-color: #faf7f0;
   --main-Dark-color: #222831;
   --light-gray: #f0f5f9;
-  --darker-blue: #00adb5;
+  --darker-blue: #37414f;
   --lighter-blue: #bccef8;
   --blue: #98a8f8;
 }
@@ -209,7 +209,8 @@ body.dark-theme {
   }
   footer{
     a{
-      color:var(--darker-blue)
+      // color:var(--darker-blue)
+      color:gray;
     }
   }
 }
