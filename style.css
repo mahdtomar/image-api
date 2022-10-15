@@ -143,16 +143,13 @@ body header .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 body header .controles {
   width: 60%;
-  margin: auto;
   padding: 0px 0px;
   max-width: 600px;
   display: -webkit-box;
@@ -182,7 +179,7 @@ body header .controles button:hover {
 
 body header .controles div label {
   font-size: 1.3em;
-  font-weight: bold;
+  margin-right: 10px;
 }
 
 body header .controles div input {
@@ -195,10 +192,12 @@ body header .controles div select {
 }
 
 body header .toggole {
+  margin-left: 50px;
+  margin-top: 10px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 80px;
+  width: 70px;
   height: 30px;
   position: relative;
   border-radius: 1000px;
@@ -226,8 +225,9 @@ body header .toggole::after {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   position: absolute;
-  right: 5px;
+  right: 0px;
   top: 55%;
+  font-size: 14px;
 }
 
 body header .toggole:checked {
@@ -244,6 +244,10 @@ body header .toggole:checked::after {
 body header .toggole:checked::before {
   right: 0px;
   left: unset;
+}
+
+body main .container {
+  width: 90%;
 }
 
 body footer {
@@ -282,6 +286,47 @@ body.dark-theme footer a {
   }
   body .image-container div {
     max-width: 300px;
+  }
+}
+
+@media (max-width: 670px) {
+  body header {
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+  body header .toggole {
+    margin: 10px 0px;
+  }
+  body header .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body header .container div {
+    margin: 5px 0px;
+  }
+  body header .container .controles {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  body header .container .controles div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */

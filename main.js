@@ -3,12 +3,8 @@ const per_page = "30";
 const selectMenu = document.getElementById("category");
 let category = "all";
 const theme = document.getElementById("theme");
-
 const searchBar = document.getElementById("search_bar");
-//ele.addEventListener("click",()=>{category=ele.value ; console.log(ele,category)}
 const opitions = document.querySelectorAll(".opition");
-// opitions.forEach((ele) => {});
-// console.log(category);
 const activationBtn = document.querySelector(".activate");
 let q = "";
 const img = document.createElement("img");
@@ -51,11 +47,9 @@ async function requestApi() {
       `https://pixabay.com/api/?key=${API_KEY}&category=${category}&safesearch=true&per_page=${per_page}&q=${q}&orientation=${"horizontal"}`
     )
       .then((res) => {
-        console.log(res);
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.hits == "") {
           let noResultDiv = div.cloneNode();
           let noResultContent = p.cloneNode();
@@ -86,7 +80,6 @@ async function requestApi() {
               `${websiteSource}${element.user}-${element.user_id}/`
             );
             imageLink.setAttribute("href", `${element.pageURL}`);
-            console.log(element);
             // appending phase
             imageLink.appendChild(mainImage);
             userImageLink.appendChild(userImage);
@@ -105,7 +98,7 @@ async function requestApi() {
 selectMenu.addEventListener("change", () => {
   category = selectMenu.value;
 });
-// requestApi();
+requestApi();
 activationBtn.addEventListener("click", () => {
   q = searchBar.value;
   requestApi();
