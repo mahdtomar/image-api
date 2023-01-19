@@ -19,6 +19,7 @@ body {
   transition: background-color 0.5s;
   .container {
     max-width: 1440px;
+    padding: 0px 10px;
     margin: 0px auto;
   }
   background-color: var(--main-light-color);
