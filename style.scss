@@ -60,6 +60,7 @@ body {
         position: relative;
         overflow: hidden;
         z-index: 1;
+        border-radius: 10px;
         &:hover {
           div {
             opacity: 1;
@@ -251,6 +252,7 @@ body.dark-theme {
     div {
       // background-color: var(--darker-blue);
       div.info {
+        border-radius: 10px;
         // background-color: var(--darker-blue);
       }
     }
