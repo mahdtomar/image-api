@@ -13,10 +13,11 @@ const p = document.createElement("p");
 let a = document.createElement("a");
 let websiteSource = "https://pixabay.com/users/";
 const imgContainer = document.querySelector(".image-container");
+let i = 0;
 
 async function requestApi() {
   try {
-    imgContainer.innerHTML = "";
+    imgContainer.innerHTML = `<div></div><div></div><div></div><div></div>`; // divs are the coulmns holding the pictures
     await fetch(
       `https://pixabay.com/api/?key=${API_KEY}&category=${category}&safesearch=true&per_page=${per_page}&q=${q}&orientation=${"horizontal"}`
     )
@@ -24,13 +25,13 @@ async function requestApi() {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         if (data.hits == "") {
           let noResultDiv = div.cloneNode();
           let noResultContent = p.cloneNode();
           noResultDiv.classList.add("no-result");
           noResultContent.textContent = "No Results Were found";
           noResultDiv.appendChild(noResultContent);
-
           imgContainer.appendChild(noResultDiv);
         } else {
           Array.from(data.hits).forEach((element) => {
@@ -61,7 +62,13 @@ async function requestApi() {
             detailsDiv.appendChild(userName);
             containerDiv.appendChild(imageLink);
             containerDiv.appendChild(detailsDiv);
-            imgContainer.appendChild(containerDiv);
+            // imageLink.appendChild(detailsDiv);
+            imgContainer.children[i].appendChild(containerDiv);
+            console.log(imgContainer.children);
+            // iteration
+            console.log(i);
+            i++;
+            i === imgContainer.children.length ? (i = 0) : "";
           });
         }
       });
